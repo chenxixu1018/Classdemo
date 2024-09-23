@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- this specifies the character set encoding, whithout this tag our fonts might not load properly -->
+        <meta charset="utf-8"/>
+        <!-- the viewpoint tag sets the initial scale and ensures proper responsive behvior -->
+        <meta name="viewport" content="width=devcie-width, initial -scale=1" />
+        <!-- The title tag-->
+         <title>CSS navbar droppdown</title>
+         <style type="text/css">
+            body{
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                padding: 20px 50px 150px 50px;
+                font-size: 13px;
+                text-align: center;
+                background-color: rgba(0,0,255,0.1);
+            }
+
+            ul{
+                /*this inline is important*/
+                display: inline;
+                margin:0;
+                padding:15px 4px 17px 0;
+                list-style-type: none;
+                box-shadow:0,0,5px rgba(0,0,0,0.15)
+            }
+
+            ul li{
+                font:bold 12px/18px san-serif;
+                display: inline-block;
+                position: relative;
+                padding: 15px 20px;
+                background-color: #fff;
+                cursor: pointer;
+                transition: all 0.9s
+                /* trnasition is always applied to the base style state, when we use the keyword all,
+                any css prperties will animate from one to the aother */
+    
+            }
+            ul li:hover{
+                background-color: #555;
+                color:#fff;
+
+            }
+                /*this pattern targets */
+            ul li ul{
+            padding:0;
+            position:absolute;
+            top: 48px;
+            left:0;
+            width:150px;
+            box-shadow: none;
+            display: none;
+            opacity:0;
+            visibility: hidden;
+            transition: opacity 0.9s
+            }
+
+            ul li ul li{
+                background: #555;
+                display: block;
+                color: #fff;
+                text-shadow: 0 -1px 0 #000;
+            }
+
+            ul li ul li:hover{
+                background: #666;
+            }
+
+            ul li:hover ul{
+                display: block;
+                opacity: 1;
+                visibility: visible;
+
+            }
+         </style>
+    </head>
+    <body>
+        <ul>
+         <li> Home </li>
+         <li> About </li>
+         <li> Portfolio </li>
+        
+          <li>Web Design</li>
+          <li>Web development</li>
+          <li>Photography</li>
+        </ul>
+       <ul>
+       <li>Contact</li>
+       </ul>
+    </body>
+</html>
