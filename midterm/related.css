@@ -40,7 +40,7 @@ nav ul li a:hover {
 }
 
 /*home*/
-.hero {
+.product {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -88,7 +88,7 @@ nav ul li a:hover {
     height: auto;
 }
 
-/*food thumbs*/
+/*product boxes*/
 body {
     font-family: Arial, sans-serif;
     background-color: #f7f3eb;
@@ -157,7 +157,7 @@ body {
   /* Tablet size */
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
 
-    .hero {
+    .product {
         flex-direction: row-reverse;
         padding: 20px; 
         background-color: #c2dbab;
@@ -270,7 +270,7 @@ body {
     }
 
     /* food */
-    .hero {
+    .product {
         flex-direction: column; 
         padding: 20px;
         background-color: #c2dbab;
