@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Portfolio Showcase</title>
+    <style>
+
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      h1 {
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      .red {
+        color: red;
+      }
+
+      .green {
+        color: green;
+      }
+
+      .blue {
+        color: blue;
+      }
+
+      .purple {
+        color: purple;
+      }
+
+      .portfolio-item {
+        margin-top: 20px;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        width: 300px;
+        margin: 0 auto;
+      }
+    </style>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const changeBtn = document.getElementById('changeBtn');
+        const projectTitle = document.getElementById('projectTitle');
+        const projectDescription = document.getElementById('projectDescription');
+        const userNumInput = document.getElementById('num');
+
+        changeBtn.addEventListener('click', function () {
+
+          const projectNum = parseInt(userNumInput.value);
+          updateProjectDisplay(projectNum);
+        });
+      });
+
+
+      function updateProjectDisplay(projectNum) {
+        const projectTitle = document.getElementById('projectTitle');
+        const projectDescription = document.getElementById('projectDescription');
+
+
+        switch (projectNum) {
+          case 0:
+            projectTitle.textContent = 'Red Design';
+            projectDescription.textContent = 'This project focuses on vibrant red color themes.';
+            projectTitle.className = 'red';
+            break;
+          case 1:
+            projectTitle.textContent = 'Green Nature';
+            projectDescription.textContent = 'A project inspired by natural green elements.';
+            projectTitle.className = 'green';
+            break;
+          case 2:
+            projectTitle.textContent = 'Blue Ocean';
+            projectDescription.textContent = 'Explores themes of the deep blue ocean and tranquility.';
+            projectTitle.className = 'blue';
+            break;
+          case 3:
+            projectTitle.textContent = 'Purple Dream';
+            projectDescription.textContent = 'A creative exploration of dreamy purple tones.';
+            projectTitle.className = 'purple';
+            break;
+          default:
+            projectTitle.textContent = 'Invalid Project Number';
+            projectDescription.textContent = 'Please enter a number between 0 and 3.';
+            projectTitle.className = '';
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1 id="projectTitle">Portfolio Showcase</h1>
+    <div class="portfolio-item">
+      <p id="projectDescription">Select a project number to view details.</p>
+    </div>
+
+    <form>
+      <fieldset>
+        <legend>Select a Project Number (0-3)</legend>
+        <input type="number" id="num" min="0" max="3" step="1" placeholder="Enter project number" />
+        <button type="button" id="changeBtn">View Project</button>
+      </fieldset>
+    </form>
+  </body>
+</html>
