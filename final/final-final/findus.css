@@ -1,0 +1,273 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e1f4d7;
+  color: #3e4737;
+  line-height: 1.6;
+  padding-bottom: 20px;
+}
+
+/* nav bar */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e1f4d7;
+}
+
+a {
+  text-decoration: none; 
+  color: inherit;
+}
+
+a .logo {
+  display: inline-block;
+}
+
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f1de;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo h1 {
+  font-size: 24px;
+  color: #3e4737;
+  transition: transform 0.3s ease;
+}
+
+.logo h1:hover {
+  transform: scale(1.1);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #3e4737;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #46af63;
+  transform: scale(1.1);
+}
+
+nav ul li a::after {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #46af63;
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav ul li a:hover {
+  background: linear-gradient(90deg, rgba(70,175,99,0.3), rgba(70,175,99,0));
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+
+/* Location Section */
+#location-section {
+  padding: 40px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+#location h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#location p {
+  margin-bottom: 10px;
+}
+
+#location p span {
+  font-weight: bold;
+}
+
+.error {
+  color: red;
+}
+
+#map {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Store List Section */
+#store-list {
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+#store-list h2 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #333333;
+  text-align: center;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+#store-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+#store-list li {
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#store-list li:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#store-list li strong {
+  display: block;
+  font-size: 1.1em;
+  margin-bottom: 5px;
+  color: #444;
+}
+
+#store-list li span {
+  color: #777;
+  font-size: 0.9em;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #46af63;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #3e9e57;
+}
+
+/*large screen*/
+@media only screen and (min-width: 768px) {
+  .menu-toggle { 
+      display: none; 
+  }
+
+  .menu-icon {
+      display: none; 
+  }
+
+  nav ul {
+      display: flex; 
+  }
+}
+
+  /* Mobile size */
+@media (max-width: 767px) {
+  
+  #menu-toggle {
+    position: absolute;
+    opacity: 0; 
+    z-index: -1; 
+}
+
+  header {
+      flex-direction: column;
+      justify-content: center;
+      align-items: stretch;
+      padding: 0;
+  }
+
+  .logo {
+      margin: 0.5rem;
+      text-align: left;
+  }
+
+  .menu-toggle {
+      display: block; 
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+  }
+
+  .menu-icon {
+      display: block;
+      font-size: 2rem;
+      cursor: pointer;
+      position: absolute;
+      right: 1rem;
+      top: 0.5rem;
+  }
+
+  nav ul {
+      display: none; 
+      flex-direction: column;
+      width: 100%;
+      background-color: #f8f1de;
+      padding: 0;
+      margin: 0;
+  }
+
+  nav ul li {
+      text-align: center;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  nav ul li a {
+      padding: 15px;
+      display: block;
+      width: 100%;
+      color: #3e4737;
+  }
+
+  #menu-toggle:checked + label + nav ul {
+      display: flex; 
+  }
+  
+}
+

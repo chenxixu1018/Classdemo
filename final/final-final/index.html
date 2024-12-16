@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pet Fly</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+   <!--nav bars-->
+   <header>
+    <div class="logo">
+        <h1>Pet Fly</h1>
+    </div>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776; </label>
+    <nav>
+        <ul>
+            <li><a href="./index.html">HOME</a></li>
+            <li><a href="flights.html">FLIGHTS</a></li>
+            <li><a href="related products.html">RELATED PRODUCTS</a></li>
+            <li><a href="./findus.html">FIND US</a></li>
+        </ul>
+    </nav>
+   </header>
+
+   <!--home dog-->
+   <section class="hero">
+    <div class="text-container">
+        <h2>
+            <span class="line line1">Make your pet's flight</span>
+            <span class="line line2">safer and happier</span>
+        </h2>
+        <h1 class="line line3">100%</h1>
+        <a href="./flights.html" class="cta-button">Get Started</a>
+    </div>
+    <div class="image-container">
+        <img src="image/dog.PNG" alt="Dog">
+    </div>
+</section>
+
+    <!--texts-->
+    <section class="box">
+        <p class="tagline">TRAVELERS</p>
+        <h1>A new experience for pet passengers</h1>
+        <p class="description">Give your most loyal travelers the traveling experience they deserve with a completely digital experience and pet-focused user journey.</p>
+    </section>
+    
+    <section class="features">
+        <div class="feature">
+            <h3>Reserve pets 100% online</h3>
+            <p>Eliminate the call center to reserve pets and allow travelers to book pet passenger tickets online.</p>
+        </div>
+        <div class="feature">
+            <h3>Automate pet inventory process</h3>
+            <p>Reduce human error and increase inventory management processes across the entire journey.</p>
+        </div>
+        <div class="feature">
+            <h3>Launch new ancillary services</h3>
+            <p>Roll out new pet-related ancillary services and revenue without any extra effort through Pawtrip.</p>
+        </div>
+    </section>
+
+    <!--thumbs-->
+    <div class="centered-text">Related products</div>
+    <section class="food-gallery">
+        <div class="gallery-item">
+            <img src="image/food3.png" alt="Fresh Food">
+            <div class="overlay">FRESH FOOD</div>
+        </div>
+        <div class="gallery-item">
+            <img src="image/toy.webp" alt="Toys">
+            <div class="overlay">TOYS</div>
+        </div>
+        <div class="gallery-item">
+            <img src="image/cleaning.webp" alt="cleaning">
+            <div class="overlay">CLEANING</div>
+        </div>
+        <div class="gallery-item">
+            <img src="image/cake.jpg" alt="cake">
+            <div class="overlay">CAKE</div>
+        </div>
+        <div class="gallery-item">
+            <img src="image/clothing.jpg" alt="clothing">
+            <div class="overlay">CLOTHING</div>
+        </div>
+        <div class="gallery-item">
+            <img src="image/others .jpg" alt="others">
+            <div class="overlay">Others</div>
+        </div>
+    </section>
+
+
+<!--author part-->
+<section class="story-section">
+    <div class="story-content">
+        <div class="text-container">
+            <h3>Pet Travel Success Stories</h3>
+            <p>"If you are looking to relocate your dog outside the USA, 
+                then this is the company for you. Fet Fly had the knowledge 
+                and experience, to walk me through all the documents that
+                was required to do this. They were with me right up to handing 
+                (Studley my parrot) over for departure and his flight from Atlanta, 
+                and at the other end of his journey in the UK. Marck and Lindsey and 
+                their team are just amazing. Thank You" </p>
+            <div class="author">
+                <p>Lynn B, Pet Owner.</p>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="image/stories.webp" alt="Cat Image" class="full-image">
+        </div>
+    </div>
+</section>
+
+<!--last part-->
+<footer>
+    <div class="footer-container">
+        <div class="footer-section newsletter">
+            <h3>NEWSLETTER</h3>
+            <p>Sign up to our newsletter to receive exclusive offers.</p>
+        </div>
+        <div class="footer-section information">
+            <h3>INFORMATION</h3>
+            <p>E-mail：cx2248@nyu.edu</p>
+            <p>Tel: 929-317-1056</p>
+        </div>
+        <div class="footer-section navigation">
+            <h3>SITE NAVIGATION</h3>
+            <a href="index.html">Back To Top</a>
+            <span>></span>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <p>&copy; Copyright 2024 by Pet Fly</p>
+    </div>
+</footer>
+
+<script>
+   gsap.from(".feature", {
+    opacity: 0,
+    y: 50,
+    stagger: 0.3,
+    duration: 1,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".features",
+      start: "top 80%",
+    },
+  }); 
+</script>
+
+</body>
+</html>

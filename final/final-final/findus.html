@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Us - Pet Fly</title>
+  <link rel="stylesheet" href="./findus.css">
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA94zwNglj3fs_WYuPLiEtB7ejD9Qjs44Y"></script>
+  <script>
+    
+    //geolocation
+    let loc, map, marker;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      loc = document.getElementById('location');
+      getLocation();
+      initMap();
+    })
+
+    const getLocation = () => {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(setPosition, showError);
+      } else {
+        loc.innerHTML = '<p class="error">Your browser does not support geolocation.</p>';
+      }
+    }
+
+    const setPosition = (position) => {
+      const lat = position.coords.latitude.toFixed(4);
+      const lon = position.coords.longitude.toFixed(4);
+      loc.innerHTML = `
+        <h2>Your Location</h2>
+        <p><span>Latitude:</span> ${lat}</p>
+        <p><span>Longitude:</span> ${lon}</p>
+        <button onclick="getLocation()">Recenter</button>
+      `;
+      const userLocation = { lat: parseFloat(lat), lng: parseFloat(lon) };
+      map.setCenter(userLocation);
+      marker.setPosition(userLocation);
+    }
+
+    const showError = (error) => {
+      let message = '';
+      switch (error.code) {
+        case error.PERMISSION_DENIED:
+          message = 'User denied the request for geolocation.';
+          break;
+        case error.POSITION_UNAVAILABLE:
+          message = 'Location information is unavailable.';
+          break;
+        case error.TIMEOUT:
+          message = 'The request to get user location timed out.';
+          break;
+        case error.UNKNOWN_ERROR:
+          message = 'An unknown error occurred.';
+          break;
+      }
+      loc.innerHTML = `<p class="error">${message}</p>`;
+    }
+
+    //store location
+    const initMap = () => {
+      const defaultLocation = { lat: 40.7128, lng: -74.0060 };
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: defaultLocation,
+        zoom: 12,
+      })
+      marker = new google.maps.Marker({
+        position: defaultLocation,
+        map: map,
+        title: "Store Location",
+      })
+
+      const storeLocations = [
+        { lat: 40.73061, lng: -73.935242, name: "Store A", address: "123 Main St", contact: "123-456-7890" },
+        { lat: 40.6596, lng: -73.9338, name: "Store B", address: "456 Elm St", contact: "987-654-3210" },
+        { lat: 40.7518, lng: -73.9792, name: "Store C", address: "789 Oak St", contact: "555-555-5555" }
+      ]
+
+      storeLocations.forEach((store) => {
+        const marker = new google.maps.Marker({
+          position: { lat: store.lat, lng: store.lng },
+          map: map,
+          title: store.name,
+        })
+
+        const infoWindow = new google.maps.InfoWindow({
+          content: `<h3>${store.name}</h3><p>${store.address}</p><p>Contact: ${store.contact}</p>`,
+        })
+
+        marker.addListener('click', () => {
+          infoWindow.open(map, marker);
+        })
+      })
+    }
+
+  </script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <h1>Pet Fly</h1>
+    </div>
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">&#9776; </label>
+    <nav>
+        <ul>
+            <li><a href="./index.html">HOME</a></li>
+            <li><a href="flights.html">FLIGHTS</a></li>
+            <li><a href="related products.html">RELATED PRODUCTS</a></li>
+            <li><a href="./findus.html">FIND US</a></li>
+        </ul>
+    </nav>
+   </header>
+
+
+  <main>
+    <section id="location-section">
+      <div id="location"></div>
+      <div id="map" style="width: 100%; height: 400px; margin-top: 20px;"></div>
+    </section>
+    <section id="store-list">
+      <h2>Our Stores</h2>
+      <ul>
+        <li><strong>Store A:</strong>123 Main St, 123-456-7890</li>
+        <li><strong>Store B:</strong>456 Elm St, 987-654-3210</li>
+        <li><strong>Store C:</strong>789 Oak St, 555-555-5555</li>
+      </ul>
+    </section>
+  </main>
+</body>
+</html>

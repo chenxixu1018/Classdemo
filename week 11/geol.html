@@ -4,32 +4,26 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Geolocation</title>
+    
+    <!--geolocation-->
     <script>
-      // declare our location element globally so we can access it anywhere in our script tag
       let loc
-
-      // content loaded event listener
       document.addEventListener('DOMContentLoaded', () => {
         loc = document.getElementById('location')
         getLocation()
       })
 
-      // function getLocation(){....}
       const getLocation = () => {
-        // we need to check if we CAN get location
+  
         if (navigator.geolocation && navigator.geolocation.getCurrentPosition) {
-          // we just checked to see if geolocation exists in our browser
-          // if true, we can use it here to get our current location
-          // once we have it, the location object will automatically be passed to a callback function we write
+
           navigator.geolocation.getCurrentPosition(setPosition, showError)
         } else {
-          // we either dont have access to geolocation or the user denied it in the pop up window
-          // we need to render an alternative message to the user
+  
           alert('your browser does not support geolocation')
         }
       }
 
-      // once we call getCurrentPosition, the result position object is passed into setPosition
       const setPosition = (position) => {
         console.log(position.coords.latitude)
         console.log(position.coords.longitude)
@@ -62,9 +56,11 @@
       }
     </script>
   </head>
+  
   <body>
     <div id="location">
       <p>Currently searching for location...</p>
     </div>
+    
   </body>
 </html>
